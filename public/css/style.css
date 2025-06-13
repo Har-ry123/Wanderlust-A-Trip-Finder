@@ -1,0 +1,548 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E0F2F7; /* Changed to a very light blue background */
+    color: #333;
+    line-height: 1.6;
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+    width: 100%; /* Take full width */
+    padding: 0;
+    background-color: #E0F2F7; /* Set container background to light blue */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #FFC0CB; /* Changed to pink color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px; /* Adjusted padding */
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0; /* Add a subtle bottom border */
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #e91e63 !important; /* Deep red for brand */
+}
+
+.navbar-brand i {
+    font-size: 2.5rem;
+    color: #e91e63;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand i:hover {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    color: #555 !important;
+    font-weight: 700; /* Made bolder */
+    font-size: 1.2rem; /* Made bigger */
+    margin-right: 15px;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link:hover {
+    color: #e91e63 !important;
+}
+
+.nav-links {
+    display: flex; /* Ensure nav links container is a flex container */
+    gap: 1.5rem; /* Add space between links */
+}
+
+/* Footer */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+    
+}
+
+footer {
+    display: flex; /* Make footer a flex container */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    background-color: #FFC0CB; /* Changed to pink color to match the navbar */
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: 2rem; /* Add some space above the footer */
+}
+
+.f-info {
+    display: flex; /* Flexbox for social icons section */
+    justify-content: center; /* Center social icons */
+    align-items: center; /* Vertically align social icons */
+    width: 100%; /* Ensure it takes full width to help centering */
+    margin-bottom: 0.5rem;
+    gap: 1.5rem; /* Add space below social icons */
+}
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 4rem;
+}
+
+.f-info-links {
+    display: flex; /* Flexbox for Privacy Terms links */
+    justify-content: center; /* Center the links horizontally */
+    gap: 4rem; /* Add space between links */
+    margin-top: 0.5rem; /* Add space above links */
+}
+
+.f-credit {
+    text-align: center;
+    margin-top: 0.5rem; /* Add space above copyright */
+}
+
+.listing-card{
+    border: 1px solid #D3D3D3; /* Added a light grey border */
+    margin-bottom: 2rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* Subtle shadow for cards */
+    background-color: #F8F8F8; /* Light grey background for cards */
+    border-radius: 0.5rem !important; /* Added 0.5rem border-radius */
+}
+.card-img-top{
+    border-radius: 0.5rem 0.5rem 0 0 !important; /* Apply border-radius to top corners only */
+    width:100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 1rem !important; /* Added padding for card body */
+    background-color: #F0F0F0; /* Light grey background for card body */
+}
+.card-text-p{
+    font-weight: 400 !important;
+}
+.listing-link {
+    text-decoration: none !important; /* Ensure underline is removed */
+}
+
+.col .listing-link {
+    text-decoration: none !important;
+}
+
+/* Optional: remove underline on hover if it reappears */
+.listing-link:hover {
+    text-decoration: none !important;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover {
+    opacity: 0.5;
+    background-color: white;
+}
+
+/* Removed custom styling for .add-btn to revert to default btn-dark style */
+
+/*edit page*/
+.edit-btn{
+    background-color: red !important;
+    border: none !important;
+}
+
+/* Button styles */
+.add-btn {
+    background-color: #fe424d !important; /* Set background color to red */
+    border-color: #fe424d !important; /* Set border color to match */
+    color: white !important; /* Set text color to white */
+}
+
+.add-btn:hover {
+    background-color: #b32a32 !important; /* Deeper red on hover */
+    border-color: #b32a32 !important;
+}
+
+/* Deep red for buttons */
+.btn-deep-red {
+    background-color: #e91e63 !important;
+    color: #fff;
+    border-color: #e91e63 !important;
+    transition: background-color 0.3s ease;
+}
+
+.btn-deep-red:hover {
+    background-color: #c2185b !important;
+    border-color: #c2185b !important;
+    color: #fff;
+}
+
+.btn-outline-dark {
+    border-color: #555;
+    color: #555;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* styles for show page image */
+.show-card .card-img-top {
+    width: 100%; /* Make image take full width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image */
+    display: block; /* Allow margin auto to work */
+    border-radius: 0.5rem 0.5rem 0 0 !important; /* Apply border-radius to top corners only */
+}
+show_img{
+    height: 30vh;
+}
+.btns{
+    display:flex;
+    flex-direction: row; /* Changed to row for horizontal alignment */
+    gap: 2rem; /* Adjust gap as needed for spacing */
+    /* align-items: center; */ /* Vertically align buttons */
+}
+.show-card{
+    padding-left:0;
+    padding-right:0;
+    background-color: #F8F8F8; /* Light grey background for the show card */
+}
+
+/* Styling for the range input (rating slider) */
+.form-range {
+    width: 80%; /* Adjust as needed */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.form-range::-webkit-slider-runnable-track {
+    background-color: #007bff; /* Blue color for the track */
+}
+
+.form-range::-moz-range-track {
+    background-color: #007bff; /* Blue color for the track */
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: #007bff; /* Blue color for the thumb */
+}
+
+.form-range::-moz-range-thumb {
+    background-color: #007bff; /* Blue color for the thumb */
+}
+
+/* Styling for review cards */
+.review-card {
+    border: 1px solid #ddd; /* Light grey border */
+    margin-top: 1rem; /* Space between review cards and other elements */
+    border-radius: 0.5rem;
+}
+/*Map */
+#map {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.filter {
+    text-align: center;
+    margin-right: 1rem;
+    opacity: 0.8; /* Slightly increase opacity for better visibility */
+    cursor: pointer;
+    margin-top: 0.3rem;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none !important;
+    color: #343a40 !important; /* Darker grey for text */
+}
+
+.filter:hover {
+    opacity: 1;
+    color: #007bff !important;
+}
+
+.filter-icon-box {
+    border: 1px solid #ced4da !important;
+    padding: 0.4rem 0.8rem !important; /* Adjusted padding */
+    border-radius: 0.5rem !important;
+    background-color: #f8f9fa !important;
+    transition: all 0.3s ease;
+}
+
+.filter-icon-box:hover {
+    border-color: #007bff !important; /* Blue border on hover */
+    background-color: #e9ecef !important; /* Slightly darker grey background on hover */
+}
+
+.filter i {
+    font-size: 1.5rem !important; /* Increased font size for icons */
+    color: #343a40 !important;
+    transition: color 0.3s ease;
+}
+
+.filter:hover i {
+    color: #007bff !important; /* Blue icon on hover */
+}
+
+.filter p {
+    font-size: 0.9rem !important; /* Increased font size for text */
+    margin-top: 0.2rem !important;
+    color: #343a40 !important;
+    transition: color 0.3s ease;
+}
+
+.filter:hover p {
+    color: #007bff !important; /* Blue text on hover */
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.search-inp {
+    border-radius: 0 !important; /* Make it square */
+    padding: 0 15px; /* Adjusted padding to match Account button height */
+    border: 1px solid #ced4da;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    width: 320px; /* Increased width */
+    height: 50px; /* Match Account button height */
+    font-size: 1.1rem; /* Match font size with Account button */
+}
+
+.search-inp:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 0 0.2rem rgba(233, 30, 99, 0.25); /* Focus shadow */
+}
+
+.search-inp::placeholder {
+    font-weight: bold;
+    font-size: 1.1rem; /* Made bigger */
+    color: #888;
+}
+
+.btn-search {
+    border-radius: 0 !important; /* Make it square */
+    background-color: #e91e63; /* Deep red color */
+    border-color: #e91e63;
+    color: #fff;
+    padding: 0; /* Remove default padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 90px; /* Set fixed width to match Account button */
+    height: 50px; /* Set fixed height to match Account button */
+    font-size: 1.1rem; /* Match font size with Account button */
+    display: flex; /* Enable flex for centering content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+.btn-search:hover {
+    background-color: #c2185b;
+    border-color: #c2185b;
+    color: #fff;
+}
+
+.btn-search i {
+    font-size: 1.2rem; /* Keep icon size */
+    /* color: #e91e63; */ /* Removed explicit color to inherit from parent */
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* General form control styling */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.form-control:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 0 0.25rem rgba(233, 30, 99, 0.25);
+}
+
+/* General button styling */
+.btn {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Card body styling */
+.card-body {
+    padding: 1.25rem; /* Increase padding for better spacing */
+}
+
+/* Image styling for new listings */
+.listing-image {
+    width: 100%;
+    height: 250px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Review card styling */
+.review-card {
+    border: 1px solid #e9ecef; /* Lighter border for reviews */
+    background-color: #fff; /* White background for reviews */
+    margin-top: 1.5rem; /* More space for review cards */
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 0.05rem 0.15rem rgba(0, 0, 0, 0.05);
+}
+
+/* Alert messages */
+.alert {
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+}
+
+/* Map styles */
+#map {
+    height: 400px; /* Increase map height */
+    width: 100%; /* Ensure map takes full width */
+    border-radius: 0.75rem; /* Rounded corners for map */
+    margin-top: 1.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.filter-categories {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    flex-grow: 1; /* Re-enabled to allow it to consume available space */
+}
+
+.filter-categories::-webkit-scrollbar {
+    display: none;
+}
+
+.tax-toggle {
+    margin-right: 1.5rem; /* Add space to the right to move it left */
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    /* background-color: lightgreen; */ /* Removed temporary background for debugging */
+}
+
+.tax-toggle label {
+    color: #555 !important; /* Changed to match nav-link color */
+    font-weight: 700; /* Made bolder */
+    font-size: 1.2rem; /* Matched font size with nav-link */
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.round-button {
+    width: 90px; /* Increased width */
+    height: 50px; /* Adjust size as needed */
+    border-radius: 0 !important; /* Make it square */
+    background-color: #e91e63 !important; /* Deep pink color for the button */
+    color: #fff !important; /* White text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 8px 15px; /* Adjusted padding for square shape */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    border: 2px solid #c2185b; /* Darker pink border */
+}
+
+.round-button:hover {
+    background-color: #ad1457 !important; /* Even darker pink on hover */
+    border-color: #ad1457; /* Match border color on hover */
+}
+
+.dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #555 !important; /* Dark grey text */
+    font-weight: 700;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0 !important; /* Light grey background on hover */
+    color: #e91e63 !important; /* Deep pink text on hover */
+}
+
+.filters::-webkit-scrollbar {
+    height: 0;
+}
+
+/* Utility */
+.text-center {
+    text-align: center;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.offset-md-3 {
+    margin-left: 25%;
+}
+
+.col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.col-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+}
+
+.offset-3 {
+    margin-left: 25%;
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    color: #777;
+    margin-top: 50px;
+    border-top: 1px solid #eee;
+}
+
+.footer a {
+    color: #777;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: #e91e63;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: #777;
+}
+
+.social-links a:hover {
+    color: #e91e63;
+}

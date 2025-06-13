@@ -1,0 +1,112 @@
+<% layout("/layouts/boilerplate") %>
+<div class="filters">
+    <div class="filter-categories">
+        <a href="/listings" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-house"></i></div>
+            <p>All</p>
+        </a>
+        <a href="/listings/category/Rooms" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-bed"></i></div>
+            <p>Rooms</p>
+        </a>
+        <a href="/listings/category/Iconic%20cities" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-mountain-city"></i></div>
+            <p>Iconic cities</p>
+        </a>
+        <a href="/listings/category/Camping" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-campground"></i></div>
+            <p>Camping</p>
+        </a>
+        <a href="/listings/category/Farms" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-tractor"></i></div>
+            <p>Farms</p>
+        </a>
+        <a href="/listings/category/Amazing%20Pools" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-person-swimming"></i></div>
+            <p>Amazing Pools</p>
+        </a>
+        <a href="/listings/category/Beach" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beach</p>
+        </a>
+        <a href="/listings/category/Lakefront" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-sailboat"></i></div>
+            <p>Lakefront</p>
+        </a>
+        <a href="/listings/category/Amazing%20Views" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-building"></i></div>
+            <p>Amazing Views</p>
+        </a>
+        <a href="/listings/category/Boats" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-ship"></i></div>
+            <p>Boats</p>
+        </a>
+        <a href="/listings/category/Arctic" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-snowman"></i></div>
+            <p>Arctic</p>
+        </a>
+        <a href="/listings/category/Tents" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-tents"></i></div>
+            <p>Tents</p>
+        </a>
+        <a href="/listings/category/Cabins" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-house"></i></div>
+            <p>Cabins</p>
+        </a>
+        <a href="/listings/category/Castles" class="filter">
+            <div class="filter-icon-box"><i class="fa-brands fa-fort-awesome"></i></div>
+            <p>Castles</p>
+        </a>
+        <a href="/listings/category/Countryside" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-cow"></i></div>
+            <p>Countryside</p>
+        </a>
+        <a href="/listings/category/New" class="filter">
+            <div class="filter-icon-box"><i class="fa-solid fa-person-walking-luggage"></i></div>
+            <p>New</p>
+        </a>
+    </div>
+</div>
+
+<% if (success && success.length) { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<% if (error && error.length) { %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+<div class="row">
+    <div class="col-12">
+        <h3>All Listings</h3>
+    </div>
+</div>
+
+   <!-- <form method="GET" action="/listings/new">
+        <button>Create New Listing</button>
+    </form> -->
+    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 g-4">
+        <% for(let listing of allListings) { %>
+        <div class="col">
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+                <div class="card listing-card">
+                    <img src="<%= (typeof listing.image === 'object' && listing.image.url) ? listing.image.url : (typeof listing.image === 'string' && listing.image ? listing.image : '/images/placeholder.jpg') %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                           <b> <%= listing.title %> </b> <br />
+                           <span class="listing-price" data-price="<%= listing.price %>">&#8377 <%= listing.price.toLocaleString("en-IN") %></span> <br /> <%= listing.location %> /night
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <% } %>
+    </div>
+         
+      
+
