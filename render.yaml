@@ -2,8 +2,10 @@ services:
   - type: web
     name: majorproject
     env: node
-    buildCommand: npm install
-    startCommand: node src/app.js
+    buildCommand: |
+      npm install
+      npm run build
+    startCommand: node app.js
     envVars:
       - key: NODE_ENV
         value: production 
