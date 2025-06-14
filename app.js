@@ -2,8 +2,6 @@ if(process.env.NODE_ENV !="production"){
     require('dotenv').config(); 
 }
 
-
-
 const express = require("express");
 const app = express();
 
@@ -24,25 +22,23 @@ const passport= require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 
-
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-//const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 const dbUrl = process.env.ATLASDB_URL;
 
-main()
-.then(() => {
-    console.log("Connected to MongoDB");
-})
-.catch((err) => {
-    console.log(err);
-});
-
 async function main() {
-    await mongoose.connect(dbUrl);
+    try {
+        await mongoose.connect(dbUrl);
+        console.log("Connected to MongoDB");
+    } catch (err) {
+        console.error("MongoDB connection error:", err);
+        process.exit(1);
+    }
 }
+
+main();
 
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
@@ -55,28 +51,26 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto: {
-        secret:"mysupersecretcode"
+        secret: process.env.SESSION_SECRET || "mysupersecretcode"
     },
     touchAfter: 24*3600,
 });
 
-store.on("error", () =>{
-    console.log("ERROR in MONGO SESSION STORE",err);
-})
+store.on("error", (err) => {
+    console.log("ERROR in MONGO SESSION STORE:", err);
+});
 
 const sessionOptions = {
     store,
-    secret: "mysupersecretcode",
+    secret: process.env.SESSION_SECRET || "mysupersecretcode",
     resave: false,
     saveUninitialized: true,
     cookie: {
-        expires:Date.now() + 7 * 24 * 60 * 60 * 1000,
-        maxAge: 7 * 24 * 60 * 60 *1000,
-        httpOnly: true,   //for crosscrypting attack
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
     },
 };
-
-
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -130,6 +124,7 @@ app.use((err, req, res, next) => {
    res.status(statusCode).render("error.ejs", {message});
 });
 
-app.listen(8080, () => {
-    console.log("Server is running on port 8080");
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
