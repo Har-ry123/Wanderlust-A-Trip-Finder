@@ -13,6 +13,10 @@ const upload = multer({storage});
 if(process.env.NODE_ENV !== "production"){
     require('dotenv').config(); 
 }
+if (!process.env.MAPBOX_TOKEN) {
+  throw new Error("MAPBOX_TOKEN is missing from environment variables");
+}
+
 
 const validateListing = (req,res,next) =>{
     console.log("Validating listing. Incoming req.body:", req.body);
