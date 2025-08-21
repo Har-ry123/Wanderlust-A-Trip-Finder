@@ -1,6 +1,10 @@
 if(process.env.NODE_ENV !="production"){
     require('dotenv').config(); 
 }
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught Exception:", err);
+});
+
 
 const express = require("express");
 const app = express();
