@@ -17,6 +17,8 @@ if (!process.env.MAPBOX_TOKEN) {
   throw new Error("MAPBOX_TOKEN is missing from environment variables");
 }
 
+console.log("MAPBOX_TOKEN:", process.env.MAPBOX_TOKEN);
+
 
 const validateListing = (req,res,next) =>{
     console.log("Validating listing. Incoming req.body:", req.body);
