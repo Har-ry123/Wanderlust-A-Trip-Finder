@@ -66,3 +66,5 @@ listingSchema.post("findOneAndDelete",async (listing) =>{
 
 const Listing = mongoose.model("Listing", listingSchema);
 module.exports = Listing;
+
+console.log("MAPBOX_TOKEN at runtime:", process.env.MAPBOX_TOKEN);
